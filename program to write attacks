@@ -1,0 +1,16 @@
+<?php
+public function write_file(){
+	$text=$_POST['write field1 here'].' - '.$_POST['write field2 here']; //write all the fields to text
+	if(!ctype_alnum ( $text )){ //check for alpha numeric
+		$attack = fopen("attackfile.txt", "a") or die("Unable to open file!"); //opening the file for appending
+		if( strpos(file_get_contents("./attackfile.txt"),$attack) !== false){ //write to file if input does not already exists
+			fwrite($attack, $text);
+		}
+		fclose($attack); //close the file
+	}
+}
+if($_SERVER["REQUEST_METHOD"] == "POST" || $_SERVER["REQUEST_METHOD"] == "GET") //if there is a get or post
+{
+   write_file(); //call the write file method
+} 
+?>

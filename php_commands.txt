@@ -1,0 +1,1 @@
+_GET _POST _REQUEST _COOKIE include_once script conn->query shell_exec exec passthru ` preg_replace

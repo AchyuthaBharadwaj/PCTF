@@ -1,0 +1,56 @@
+Steps to follow to sanitize the input:
+Step 1: Copy all the files in the local drive
+Step 2: 
+If it is a C program just copy this code where ever it is asking for something from the user (checking for alphanumeric):
+
+	int a= strlen(input);
+  	 int i;
+   for (i=0;i<a;i++){
+    	if((name[i] >= 'a' && name[i] <= 'z') || (name[i] >= 'A' && name[i] <= 'Z') || (name[i] >= '0' && name[i] <= '9')){
+            	//printf("\n");
+    	}
+    	else{
+         	printf("Goodbye!\n");
+         	fflush(stdout);
+         	exit(0);
+    	}
+   }
+   printf("\n");
+	
+
+If it PHP and is is encoded format copy the code and paste it on https://www.unphp.net/
+
+Evaluate the code and paste the following functions wherever user input is taken (check php_patch.php for more functions) :
+
+	public function designated_ouput($input){
+		$output = ''; //preventing output fron being placed in an untrusted location
+		return $output; //Nullifying it
+	}
+
+	public function removing_tags($input){
+		$output = strip_tags($input,"put allowed","tags here"); //removes every tag except allowed ones useful for clearing out the script tags
+		return $output;
+	}
+
+	public function removing_specialchars($input){
+		$output = htmlspecialchars($input, ENT_QUOTES); //replaces ", ', <, >, & in the string
+		return $output;
+	}
+	
+	public function sanitizing_commands($command){
+		$command1 = escapeshellcmd ( $command ); //prevents the attacker from implementing another command in the initial command
+		return $command1;
+	}
+
+	public function sanitizing_commands($input){
+		if( !ctype_alnum ( $input )) { //check for alpha-numerics
+			echo "Not a valid input";
+			$output = htmlspecialchars($input, ENT_QUOTES);
+			return $output;
+		}
+		
+	}
+
+
+
+Remove include_once anywhere you see it! 

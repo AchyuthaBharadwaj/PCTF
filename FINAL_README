@@ -1,0 +1,30 @@
+program to write attacks ->
+This is a php file to write inputs into attackfile.txt. It takes values from POST request and writes it to the file if it contains anything
+that is alphanumeric. This is useful to filter out the parameters being sent to us. Include this file and send the parameters to it to run 
+this.
+
+patch.php ->
+This file contains method to patch and sanitize inputs. All the functions are public and they should be called after including this file in php
+script. The value to be sanitized must be passed to the methods.
+
+
+exploit.py ->
+The script is based on the api.py given by TA.  Its basic functions include: retrieving information on victim services’ ip, port and flag_id, 
+connecting to victim services using pwntool remote function, exploiting through interaction with victim service (this portion need to code during 
+the competition), receiving data from victim service and search flag in the data through regular expression.
+
+
+recovery.py ->
+This script checkes our own services every 30 seconds. It connects to local service using pwntool remote function.  If remote function does not 
+receive any data, it will copy the backup file and change the configuration using "chmod" and "chown".
+
+SS_Final/filelist.py ->
+Get a list of all the files in the directory and return it to the caller function.
+SS_Final/find_vuln.py ->
+Get a list of files in the directory, add the paths and finally extract data from them. This data is then processed and checked through with vulnerabilities. 
+If there is any vulnerability found then list it down for the user to see and fix.
+
+Test_Sanitizer.c ->
+This is a test input sanitizer code we wrote that will check for special chars in the input and if there are some special charspresent then program exits. 
+We just have to copy the methods into the source file and call check for validation method.
+PS: We could not use this in CTF as there were tests that took down our server because some special chars were used in the tests.

@@ -1,0 +1,24 @@
+at /home/ctf run
+mkdir serviceRecovery
+cp -r ./babymarvel/ ./serviceRecovery/babymarvel/
+cp -r ./service#2/ ./serviceRecovery/service#2/
+...
+
+
+
+Then configure recovery.py according to the service setup
+
+
+
+
+
+
+
+
+
+
+If copy to local
+scp -i key -P 1349 -r ctf@18.188.20.47:~/babymarvel/ ./babymarvel/
+
+copy from local
+scp -i key -P 1349 -r ./run_files/recovery.py ctf@18.188.20.47:~/run_files/ 

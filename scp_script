@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#echo "Hello World"
+
+scp -p port_no ~/source_path ctf@10.188.20.47:~/dest_path
+

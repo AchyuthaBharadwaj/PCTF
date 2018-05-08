@@ -1,0 +1,1 @@
+gets scanf sprintf strcat strcpy printf fprintf vprintf snprintf vsnprintf syslog access chown chgrp chmod mktemp tempnam tmpfile tmpnam rand random exec popen system
